@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yuji-tak/node-1st-subject/issues"
   },
-  "homepage": "https://github.com/yuji-tak/node-1st-subject#readme"
+  "homepage": "https://github.com/yuji-tak/node-1st-subject#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
