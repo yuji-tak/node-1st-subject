@@ -4,12 +4,21 @@ const app = express()
 const port = 3000
 
 app.set('view engine', 'ejs')
+
 app.get('/', (req, res) => {
   var data = {
     title: 'test'
   }
 
-  res.render('./index.ejs', data)
+  res.render('signup.ejs', data)
+})
+
+app.get('/login', (req, res) => {
+  var data = {
+    title: 'login'
+  }
+
+  res.render('login.ejs', data)
 })
 
 app.listen(port, () => {
