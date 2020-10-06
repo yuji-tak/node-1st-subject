@@ -7,7 +7,7 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
   var data = {
-    title: 'test'
+    title: 'signup'
   }
 
   res.render('signup.ejs', data)
