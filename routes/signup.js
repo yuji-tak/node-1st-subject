@@ -1,5 +1,5 @@
-const app = require('express')
-const router = new app.Router()
+const express = require('express')
+const router = new express.Router()
 
 router.get('/', (req, res) => {
   res.render('signup', {
