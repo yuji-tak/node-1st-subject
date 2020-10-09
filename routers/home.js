@@ -1,13 +1,13 @@
 const express = require('express')
 const router = new express.Router()
 
-router.post('/home', (req, res) => {
+router.post('/home', ({ body }, res) => {
   // 入力情報の取得
   const user = {
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    confirmedPassword: req.body.confirmpassword
+    name: body.name,
+    email: body.email,
+    password: body.password,
+    confirmedPassword: body.confirmpassword
   }
   console.log('入力情報の取得', user)
 
