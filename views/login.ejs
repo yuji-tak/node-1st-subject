@@ -1,0 +1,26 @@
+<%- include('components/header') %>
+  <h1><%= title %></h1>
+  <form class="login-form" action="/">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <label>Email</label>
+          </td>
+          <td>
+            <input type="text" name="email" placeholder="Email">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Password</label>
+          </td>
+          <td>
+            <input type="text" name="password" placeholder="Password">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button>Login</button>
+  </form>
+<%- include('components/footer') %>

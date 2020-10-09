@@ -1,0 +1,42 @@
+<%- include('components/header') %>
+  <h1><%= title %></h1>
+  <form class="signup-form" action="/login">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <label>Name</label>
+          </td>
+          <td>
+            <input type="text" name="name" placeholder="Name">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>E-mail</label>
+          </td>
+          <td>
+            <input type="text" name="email" placeholder="E-mail">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Password</label>
+          </td>
+          <td>
+            <input type="text" name="passwrod" placeholder="Password">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Confirm Password</label>
+          </td>
+          <td>
+            <input type="text" name="confirm-passwrod" placeholder="Confirm Password">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button>Resister</button>
+  </form>
+<%- include('components/footer') %>
