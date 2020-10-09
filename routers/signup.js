@@ -1,7 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
   res.render('signup', {
     title: 'signup'
   })
