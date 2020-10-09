@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const signupRouter = require('./routes/signup')
-const loginRouter = require('./routes/login')
-const homeRouter = require('./routes/home')
+const signupRouter = require('./routers/signup')
+const loginRouter = require('./routers/login')
+const homeRouter = require('./routers/home')
 
 app.set('view engine', 'ejs')
 app.use(signupRouter)
