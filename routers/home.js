@@ -25,7 +25,8 @@ router.post('/home', ({ body }, res) => {
   }
 
   res.render('home', {
-    title: 'home'
+    title: 'home',
+    name: user.name
   })
 })
 
