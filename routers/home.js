@@ -1,7 +1,9 @@
 const express = require('express')
 const router = new express.Router()
 
-router.get('/home', (req, res) => {
+router.post('/home', (req, res) => {
+  console.log(req.body.name)
+
   res.render('home', {
     title: 'home'
   })
