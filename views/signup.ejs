@@ -1,6 +1,6 @@
 <%- include('components/header') %>
   <h1><%= title %></h1>
-  <form class="signup-form" action="/home" method="POST">
+  <form class="signup-form" action="/" method="POST">
     <table>
       <tbody>
         <tr>
@@ -37,10 +37,6 @@
         </tr>
       </tbody>
     </table>
-    <% if (true) { %>
-      <% console.log('yeah!') %>
-      <p>Errorだよ！</p>
-      <button disabled>Resister</button>
-    <% } %>
+    <button>Resister</button>
   </form>
 <%- include('components/footer') %>

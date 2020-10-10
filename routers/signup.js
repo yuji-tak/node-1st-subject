@@ -7,4 +7,11 @@ router.get('/', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  console.log('post from /')
+  res.render('signup', {
+    title: 'signup'
+  })
+})
+
 module.exports = router
