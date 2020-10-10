@@ -9,19 +9,19 @@ router.post('/home', ({ body }, res) => {
     password: body.password,
     confirmedPassword: body.confirmpassword
   }
-  console.log('入力情報の取得', user)
+  console.log(user)
 
   // 入力情報の検証
   if (user.password.length <= 7) {
-    console.log('7文字以下')
+    throw new Error('7文字以下')
   }
 
   if (user.password !== user.confirmedPassword) {
-    console.log('値が確認用パスワードと一致しない')
+    throw new Error('パスワードが確認用パスワードと一致しない')
   }
 
   if (!user.hasOwnProperty('name', 'email', 'password', 'confirmedPassword')) {
-    console.log('入力していない項目がある')
+    throw new Error('未入力の項目がある')
   }
 
   res.render('home', {
