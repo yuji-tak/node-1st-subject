@@ -18,7 +18,10 @@ router.post('/', ({ body }, res) => {
     password: body.password,
     confirmedPassword: body.confirmpassword
   }
-  console.log(user)
+
+  // 入力情報の検証用データを作成
+  const validateUserValues = Object.values(user)
+  const isAllRequired = validateUserValues.includes('')
 
   // 入力情報の検証
   if (user.password.length <= 7) {
@@ -35,7 +38,7 @@ router.post('/', ({ body }, res) => {
       errorMessageConfirmedPassword: 'パスワードが確認用パスワードと一致しない',
       errorMessageRequired: ''
     })
-  } else if (!user.hasOwnProperty('name', 'email', 'password', 'confirmedPassword')) {
+  } else if (isAllRequired) {
     res.render('signup', {
       title: 'signup',
       errorMessagePasswordLength: '',
