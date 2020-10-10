@@ -3,7 +3,10 @@ const router = new express.Router()
 
 router.get('/', (req, res) => {
   res.render('signup', {
-    title: 'signup'
+    title: 'signup',
+    errorMessagePasswordLength: '',
+    errorMessageConfirmedPassword: '',
+    errorMessageRequired: ''
   })
 })
 
@@ -19,20 +22,29 @@ router.post('/', ({ body }, res) => {
 
   // 入力情報の検証
   if (user.password.length <= 7) {
-    throw new Error('7文字以下')
+    res.render('signup', {
+      title: 'signup',
+      errorMessagePasswordLength: 'パスワードは7文字以上で入力',
+      errorMessageConfirmedPassword: '',
+      errorMessageRequired: ''
+    })
+  } else if (user.password !== user.confirmedPassword) {
+    res.render('signup', {
+      title: 'signup',
+      errorMessagePasswordLength: '',
+      errorMessageConfirmedPassword: 'パスワードが確認用パスワードと一致しない',
+      errorMessageRequired: ''
+    })
+  } else if (!user.hasOwnProperty('name', 'email', 'password', 'confirmedPassword')) {
+    res.render('signup', {
+      title: 'signup',
+      errorMessagePasswordLength: '',
+      errorMessageConfirmedPassword: '',
+      errorMessageRequired: '未入力の項目がある'
+    })
+  } else {
+    res.redirect('/home')
   }
-
-  if (user.password !== user.confirmedPassword) {
-    throw new Error('パスワードが確認用パスワードと一致しない')
-  }
-
-  if (!user.hasOwnProperty('name', 'email', 'password', 'confirmedPassword')) {
-    throw new Error('未入力の項目がある')
-  }
-
-  res.render('signup', {
-    title: 'signup'
-  })
 })
 
 module.exports = router
