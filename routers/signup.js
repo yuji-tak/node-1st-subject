@@ -46,7 +46,10 @@ router.post('/', ({ body }, res) => {
       errorMessageRequired: '未入力の項目がある'
     })
   } else {
-    res.redirect('/home')
+    res.render('home', {
+      title: 'home',
+      name: user.name
+    })
   }
 })
 
