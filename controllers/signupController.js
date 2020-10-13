@@ -16,9 +16,10 @@ module.exports = {
       confirmedPassword: body.confirmpassword
     }
 
-    // 入力情報の検証用データを作成
-    const validateUserValues = Object.values(user)
-    const isAllRequired = validateUserValues.includes('')
+    // 未入力の項目があるか検証
+    const validateAllRequired = () => {
+      Object.values(user).includes('')
+    }
 
     // 入力情報の検証
     if (user.password.length <= 7) {
@@ -35,7 +36,7 @@ module.exports = {
         errorMessageConfirmedPassword: 'パスワードが確認用パスワードと一致しない',
         errorMessageRequired: ''
       })
-    } else if (isAllRequired) {
+    } else if (!validateAllRequired) {
       res.render('signup', {
         title: 'signup',
         errorMessagePasswordLength: '',
