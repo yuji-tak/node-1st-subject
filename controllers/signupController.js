@@ -20,7 +20,7 @@ module.exports = {
 
     // 未入力の項目があるか検証
     const validateAllRequired = () => {
-      Object.values(user).includes('')
+      return Object.values(user).includes(undefined)
     }
 
     // 入力情報の検証
@@ -28,7 +28,7 @@ module.exports = {
       signupSubController.doValidateLength(res)
     } else if (user.password !== user.confirmedPassword) {
       signupSubController.doValidateConfirmedPassword(res)
-    } else if (validateAllRequired) {
+    } else if (validateAllRequired()) {
       signupSubController.doValidateAllRequired(res)
     } else {
       res.render('home', {
