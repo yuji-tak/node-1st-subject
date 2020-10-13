@@ -1,14 +1,8 @@
 const express = require('express')
 const router = new express.Router()
+const signupController = require('../controllers/signupController')
 
-router.get('/', (req, res) => {
-  res.render('signup', {
-    title: 'signup',
-    errorMessagePasswordLength: '',
-    errorMessageConfirmedPassword: '',
-    errorMessageRequired: ''
-  })
-})
+router.get('/', signupController.doGetSignup)
 
 router.post('/', ({ body }, res) => {
   // 入力情報の取得
