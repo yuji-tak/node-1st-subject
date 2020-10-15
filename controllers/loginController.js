@@ -1,5 +1,5 @@
 module.exports = {
-  doGetLogin: (req, res) => {
+  getLogin: (req, res) => {
     res.render('login', {
       title: 'login'
     })

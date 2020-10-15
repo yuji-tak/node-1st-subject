@@ -1,5 +1,5 @@
 module.exports = {
-  doValidateLength: (res) => {
+  validateLength: (res) => {
     res.render('signup', {
       title: 'signup',
       errorMessagePasswordLength: 'パスワードは7文字以上で入力',
@@ -7,7 +7,7 @@ module.exports = {
       errorMessageRequired: ''
     })
   },
-  doValidateConfirmedPassword: (res) => {
+  validateConfirmedPassword: (res) => {
     res.render('signup', {
       title: 'signup',
       errorMessagePasswordLength: '',
@@ -15,7 +15,7 @@ module.exports = {
       errorMessageRequired: ''
     })
   },
-  doValidateAllRequired: (res) => {
+  validateAllRequired: (res) => {
     res.render('signup', {
       title: 'signup',
       errorMessagePasswordLength: '',
