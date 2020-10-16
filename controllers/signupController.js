@@ -1,13 +1,8 @@
-const signupSubController = require('./utils/signupSubController')
+const helper = require('./utils/helper')
 
 module.exports = {
   getSignup: (req, res) => {
-    res.render('signup', {
-      title: 'signup',
-      errorMessagePasswordLength: '',
-      errorMessageConfirmedPassword: '',
-      errorMessageRequired: ''
-    })
+    res.render('signup', helper.isInitial)
   },
   postSignup: ({ body }, res) => {
     // 入力情報の取得
@@ -17,14 +12,14 @@ module.exports = {
       password: body.password,
       confirmedPassword: body.confirmpassword
     }
-    
+
     // 入力情報の検証
     if (user.password.length <= 7) {
-      signupSubController.validateLength(res)
+      res.render('signup', helper.isLength)
     } else if (user.password !== user.confirmedPassword) {
-      signupSubController.validateConfirmedPassword(res)
+      res.render('signup', helper.isConfirmedPassword)
     } else if (Object.values(user).includes(undefined)) {
-      signupSubController.validateAllRequired(res)
+      res.render('signup', helper.isAllRequired)
     } else {
       res.render('home', {
         title: 'home',
